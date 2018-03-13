@@ -1,10 +1,10 @@
 # MeshNetwork
 Gavin Brown &amp; Fletcher Alderson
 
-#Links
+# Links
 
-#Timestamp link
+# Timestamp link
 https://www.unixtimestamp.com/index.php
 
-#Node Documentation
+# Node Documentation
 https://help.cloudtrax.com/hc/en-us/articles/207985916-CloudTrax-Presence-Reporting-API
