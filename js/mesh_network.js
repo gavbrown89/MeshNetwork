@@ -14,11 +14,12 @@ var dataFeed;
 function getData(data) {
     console.log(data);
     dataFeed = data;
+    console.log(data[0].probe_requests[0].count);
 }
 
 /**
  *  Function to draw on the canvas
- * */
+ */
 function draw() {
     background('#000000');
     fill('#000000');
@@ -36,7 +37,7 @@ function draw() {
 
     if (dataFeed) {
         randomSeed(1);
-        for (var i = 0; i < dataFeed.length; i++) {
+        for (var i = 0; i < dataFeed[0].probe_requests[1].count; i++) {
             fill('#ffffff');
             stroke('#ffffff');
             ellipse(random(width), random(height), 10, 10);
@@ -46,6 +47,4 @@ function draw() {
     }
 }
 
-/** ERROR HANDLING **/
-document.write(dataFeed);
-console.log(dataFeed);
+
