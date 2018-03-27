@@ -7,15 +7,16 @@ function setup() {
 }
 
 /**
- *  Get the data from the URL and display it
+ *  Create a function to store the data brought in from the JSON mesh feed data
  * */
-var dataFeed;
-
 function getData(data) {
     console.log(data);
     dataFeed = data;
     console.log(data[0].probe_requests[0].count);
 }
+
+/** Create a global variable to store the data */
+var dataFeed;
 
 /**
  *  Function to draw on the canvas
@@ -34,13 +35,17 @@ function draw() {
     ellipse(105, 100, 20, 20);
     line(105, 0, 105, 210);
     line(0, 100, 210, 100);
-
+    /**
+     *
+     *  Display the count data using ellipses randomly placed on the canvas
+     *
+     */
     if (dataFeed) {
         randomSeed(1);
-        for (var i = 0; i < dataFeed[0].probe_requests[1].count; i++) {
+        for (var i = 0; i < dataFeed[0].probe_requests[0].count; i++) { /** if Variable i equals 0 and is less than the first dataFeed & probe request count array then increment i by 1  */
             fill('#ffffff');
             stroke('#ffffff');
-            ellipse(random(width), random(height), 10, 10);
+            ellipse(random(width), random(height), 10, 10); /** Draw an ellispe with random x & y coordinates */
 
         }
 
