@@ -1,9 +1,8 @@
 html, body {
     overflow: hidden;
+    background-color: #272c32;
     margin:0;
 }
 canvas {
     background-color: #272c32;
-    width: 100%;
-    height: 100%;
 }
