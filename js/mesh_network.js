@@ -2,7 +2,8 @@
  * Set up the canvas and load the JSON data URL
  * */
 function setup() {
-    createCanvas(210, 210);
+    var canvas = createCanvas(210, 200);
+    canvas.parent('radar-canvas');
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
     setInterval(askJSON, 30000);
 }
@@ -51,7 +52,7 @@ function draw() {
             /** if Variable i equals 0 and is less than the first dataFeed & probe request count array then increment i by 1  */
             fill('rgba(255, 255, 255, 1)');
             noStroke();
-            ellipse(random(width, 20, 20, 20, 20), random(height, 20, 20, 20, 20), 10, 10);
+            ellipse(random(30, width), random(30, height), 10, 10);
             /** Draw an ellispe with random x & y coordinates */
 
         }
