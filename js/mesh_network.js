@@ -4,6 +4,11 @@
 function setup() {
     createCanvas(210, 210);
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
+    setInterval(askJSON,30000);
+}
+
+function askJSON() {
+    loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
 }
 
 /**
@@ -50,6 +55,8 @@ function draw() {
         }
 
     }
+
+
 }
 
 
