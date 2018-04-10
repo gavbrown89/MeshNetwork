@@ -19,6 +19,10 @@ function getData(data) {
     console.log(data);
     dataFeed = data;
     console.log("Connection Count:", data[0].probe_requests[0].count);
+
+    var displayCount = document.getElementById('displayCount');
+
+    displayCount.innerHTML = data[0].probe_requests[0].count;
 }
 
 /** Create a global variable to store the data. */
@@ -28,7 +32,6 @@ var dataFeed;
  *  Function to draw on the canvas
  */
 function draw() {
-    background('#000000');
     fill('#000000');
     stroke('#00ff03');
     strokeWeight(4);
@@ -61,5 +64,4 @@ function draw() {
 
 
 }
-
 

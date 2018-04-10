@@ -11,14 +11,16 @@ header img{padding: 10px;width: 100px;}
 h1 {
     color: #fff;
     text-align: center;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-family: Myriad Pro, Arial, Helvetica, sans-serif;
 }
 #radar-canvas {
-    background-color: #272c32;
+    background-color: #21262d;
     text-align: center;
     float: right;
+    margin-right: 30px;
     margin-top: 150px;
-    padding: 10px 40px 10px 20px;
+    padding: 10px 40px 40px 40px;
+    border-radius: 50px;
     color: #fff;
-    font-family: Tahoma, Arial, Helvetica, sans-serif;
+    font-family: Myriad Pro, Arial, Helvetica, sans-serif;
 }
