@@ -24,3 +24,13 @@ h1 {
     color: #fff;
     font-family: Myriad Pro, Arial, Helvetica, sans-serif;
 }
+/** d3 */
+.nodes circle {
+    fill:#00ff03;
+    stroke: #00ff03;
+    stroke-width: 1px;
+}
+.links line {
+    stroke: #fff;
+    stroke-width: 1px;
+}
