@@ -1,6 +1,9 @@
 var phone = [];
+var router = [1];
+
 var mousePhone;
 var img;
+var imgRouter;
 
 length = 600;
 breadth = 400;
@@ -8,17 +11,23 @@ breadth = 400;
 innerLength = length / 10 + 5;
 innerBreadth = breadth / 10 + 5;
 
-number = 50;
+number = 10;
+
+
 
 function preload() {
-    img = loadImage('img/mobile.png');
+    img = loadImage('img/mobile.svg');
+    imgRouter = loadImage('img/router.svg');
 }
 
 function setup() {
+
     var meshCanvas = createCanvas(length, breadth);
     meshCanvas.parent('mesh-network');
+
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
     setInterval(askJSON, 30000);
+
     for (i = 0; i < number; i++) {
         phone[i] = new phones()
     }
@@ -49,29 +58,16 @@ function getData(data) {
 /** Create a global variable to store the data. */
 var dataFeed;
 
-function draw() {
-    background('#272c32');
-
-    for (i = 0; i < (number - 1); i++) {
-
-        phone[i].display();
-
-        for (j = 0; j < i / i; j++) {
-            phone[i].randMove();
-            stroke('#00ff03');
-            line(phone[i].x, phone[i].y, phone[j].x, phone[j].y)
-            // line(phone[i].x,phone[i].y,mouseX,mouseY)
-            // line(mouseX,mouseY,phone[j].x,phone[j].y)
-            // line(mouseX + 50,mouseY +30,phone[j].x,phone[j].y)
-        }
-    }
-
-}
-
 function phones() {
+
+    this.display = function () {
+        image(img, this.x, this.y, 18, 32);
+        imageMode(CENTER);
+    }
 
     this.x = random(65, length - 60 - 5);
     this.y = random(45, breadth - 40 - 5);
+
 
     var set2 = [-0.2, 0.2];
 
@@ -88,10 +84,22 @@ function phones() {
         }
     };
 
-    this.display = function () {
-        // noStroke();
-        imageMode(CENTER);
-        image(img, this.x, this.y);
-        // rect(this.x, this.y, 11, 21);
-    }
+
 }
+
+function draw() {
+    background('#272c32');
+
+    for (i = 0; i < number; i++) {
+        for (j = 0; j < i + 1 ; j++) {
+            stroke('#CC123B');
+            line(300, 225, phone[i].x, phone[i].y);
+        }
+        phone[i].display();
+        phone[i].randMove();
+        image(imgRouter, 300, 200, 75, 78);
+    }
+
+
+}
+
