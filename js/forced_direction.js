@@ -14,7 +14,6 @@ innerBreadth = breadth / 10 + 5;
 number = 10;
 
 
-
 function preload() {
     img = loadImage('img/mobile.svg');
     imgRouter = loadImage('img/router.svg');
@@ -91,7 +90,7 @@ function draw() {
     background('#272c32');
 
     for (i = 0; i < number; i++) {
-        for (j = 0; j < i + 1 ; j++) {
+        for (j = 0; j < i + 1; j++) {
             stroke('#CC123B');
             line(300, 225, phone[i].x, phone[i].y);
         }
