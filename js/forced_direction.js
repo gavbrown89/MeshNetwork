@@ -11,7 +11,7 @@ breadth = 400;
 innerLength = length / 10 + 5;
 innerBreadth = breadth / 10 + 5;
 
-number = 10;
+number = 5;
 
 
 function preload() {

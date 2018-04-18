@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="382 -214 32 58">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #545e73;
+      }
+
+      .cls-2 {
+        fill: #8697cb;
+      }
+
+      .cls-3 {
+        fill: #323a45;
+      }
+    </style>
+  </defs>
+  <g id="smartphone" transform="translate(374.704 -214)">
+    <path id="Path_9" data-name="Path 9" class="cls-1" d="M35.89,58H10.7a3.405,3.405,0,0,1-3.4-3.4V3.4A3.406,3.406,0,0,1,10.7,0H35.89a3.405,3.405,0,0,1,3.4,3.4V54.594A3.4,3.4,0,0,1,35.89,58Z"/>
+    <rect id="Rectangle_21" data-name="Rectangle 21" class="cls-2" width="32" height="40" transform="translate(7.296 6)"/>
+    <circle id="Ellipse_1" data-name="Ellipse 1" class="cls-3" cx="3" cy="3" r="3" transform="translate(20.296 49)"/>
+    <path id="Path_10" data-name="Path 10" class="cls-3" d="M23.3,4h-4a1,1,0,0,1,0-2h4a1,1,0,0,1,0,2Z"/>
+    <path id="Path_11" data-name="Path 11" class="cls-3" d="M27.3,4h-1a1,1,0,0,1,0-2h1a1,1,0,0,1,0,2Z"/>
+  </g>
+</svg>
