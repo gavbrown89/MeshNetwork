@@ -1,8 +1,8 @@
 var star = [];
 var mouseStar;
 
-length = 600;
-breadth = 400;
+length = 1000;
+breadth = 500;
 
 innerLength = length / 10 + 5;
 innerBreadth = breadth / 10 + 5;
@@ -10,7 +10,8 @@ innerBreadth = breadth / 10 + 5;
 number = 15;
 
 function setup() {
-    createCanvas(length, breadth);
+    var meshCanvas = createCanvas(length, breadth);
+    meshCanvas.parent('mesh-network');
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
     setInterval(askJSON, 30000);
     for (i = 0; i < number; i++) {
@@ -19,18 +20,18 @@ function setup() {
 }
 
 function draw() {
-    background(100);
+    background('#272c32');
 
     for (i = 0; i < (number - 1); i++) {
         star[i].randMove();
         star[i].display();
 
         for (j = 0; j < i / 3; j++) {
-            stroke(131, 222, 255);
+            stroke('#00ff03');
             line(star[i].x, star[i].y, star[j].x, star[j].y)
-            //line(star[i].x,star[i].y,mouseX,mouseY)
-            //line(mouseX,mouseY,star[j].x,star[j].y)
-            //line(mouseX + 50,mouseY +30,star[j].x,star[j].y)
+            // line(star[i].x,star[i].y,mouseX,mouseY)
+            // line(mouseX,mouseY,star[j].x,star[j].y)
+            // line(mouseX + 50,mouseY +30,star[j].x,star[j].y)
         }
     }
 

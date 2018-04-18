@@ -3,34 +3,79 @@ html, body {
     background-color: #272c32;
     margin:0;
 }
-header img, h1{
+.uclan-logo, h1{
     display: inline-block;
-    width: 50%;
 }
-header img{padding: 10px;width: 100px;}
+header img{padding: 10px;width: 150px;}
+.uclan-logo {
+    width: 10%;
+}
 h1 {
+    width: 80%;
     color: #fff;
     text-align: center;
     font-family: Myriad Pro, Arial, Helvetica, sans-serif;
 }
-#radar-canvas {
+.results, #mesh-style {
+    display: inline-block;
+
+}
+.results {
+    width: 200px;
+    background-color: #21262d;
+    border-radius: 50px;
+    margin-left: 20px;
+    padding: 10px 40px 20px 40px;
+    text-align: center;
+    color: #fff;
+    font-family: 'Jura', sans-serif;
+    font-family: 'Aldrich', sans-serif;
+}
+.results span {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+.hr-head {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 1));
+}
+hr {
+    height: 12px;
+    border: 0;
+    box-shadow: inset 0 12px 12px -12px rgba(255, 255, 255, 0.5);
+}
+
+#mesh-network {
+    width: 600px;
     background-color: #21262d;
     text-align: center;
     float: right;
     margin-right: 30px;
-    margin-top: 150px;
-    padding: 10px 40px 40px 40px;
+    padding: 10px 40px 10px 40px;
     border-radius: 50px;
     color: #fff;
     font-family: Myriad Pro, Arial, Helvetica, sans-serif;
 }
+
+/*#radar-canvas {*/
+    /*background-color: #21262d;*/
+    /*text-align: center;*/
+    /*float: right;*/
+    /*margin-right: 30px;*/
+    /*margin-top: 150px;*/
+    /*padding: 10px 40px 40px 40px;*/
+    /*border-radius: 50px;*/
+    /*color: #fff;*/
+    /*font-family: Myriad Pro, Arial, Helvetica, sans-serif;*/
+/*}*/
 /** d3 */
-.nodes circle {
-    fill:#00ff03;
-    stroke: #00ff03;
-    stroke-width: 1px;
-}
-.links line {
-    stroke: #fff;
-    stroke-width: 1px;
-}
+/*.nodes circle {*/
+    /*fill:#00ff03;*/
+    /*stroke: #00ff03;*/
+    /*stroke-width: 1px;*/
+/*}*/
+/*.links line {*/
+    /*stroke: #fff;*/
+    /*stroke-width: 1px;*/
+/*}*/

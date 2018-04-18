@@ -3,6 +3,7 @@
  * */
 function setup() {
     var canvas = createCanvas(210, 200);
+    canvas.parent('radar-canvas');
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
     setInterval(askJSON, 30000);
 }
@@ -60,9 +61,3 @@ function draw() {
     }
 
 }
-
-
-
-
-
-
