@@ -8,7 +8,7 @@ breadth = 400;
 innerLength = length / 10 + 5;
 innerBreadth = breadth / 10 + 5;
 
-number = 15;
+number = 50;
 
 function preload() {
     img = loadImage('img/mobile.png');
@@ -53,10 +53,11 @@ function draw() {
     background('#272c32');
 
     for (i = 0; i < (number - 1); i++) {
-        phone[i].randMove();
+
         phone[i].display();
 
-        for (j = 0; j < i / 3; j++) {
+        for (j = 0; j < i / i; j++) {
+            phone[i].randMove();
             stroke('#00ff03');
             line(phone[i].x, phone[i].y, phone[j].x, phone[j].y)
             // line(phone[i].x,phone[i].y,mouseX,mouseY)
