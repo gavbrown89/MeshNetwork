@@ -11,7 +11,7 @@ breadth = 400;
 innerLength = length / 10 + 5;
 innerBreadth = breadth / 10 + 5;
 
-number = 5;
+number = 15;
 
 
 function preload() {
@@ -36,13 +36,14 @@ function askJSON() {
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
 }
 
+
 /**
  *  Create a function to store the data brought in from the JSON mesh feed data
  * */
 function getData(data) {
     console.log(data);
     dataFeed = data;
-    console.log("Connection Count:", data[0].probe_requests[0].min_signal);
+    console.log("Phones Connected:", data[0].probe_requests[0].count);
 
     var displayMin = document.getElementById('displayMin');
     displayMin.innerHTML = data[0].probe_requests[0].min_signal;
@@ -60,9 +61,19 @@ var dataFeed;
 function phones() {
 
     this.display = function () {
-        image(img, this.x, this.y, 18, 32);
+        if (dataFeed) {
+            randomSeed(1);
+            for (var i = 0; i < dataFeed[0].probe_requests[0].count; i++) {
+                /** if Variable i equals 0 and is less than the first dataFeed & probe request count array then increment i by 1  */
+                fill('#ffffff');
+                stroke('#ffffff');
+                image(img, random(width), random(height), 18, 32);
+                /** Draw an ellispe with random x & y coordinates */
+            }
+        }
+        // image(img, this.x, this.y, 18, 32);
         imageMode(CENTER);
-    }
+    };
 
     this.x = random(65, length - 60 - 5);
     this.y = random(45, breadth - 40 - 5);
@@ -101,4 +112,3 @@ function draw() {
 
 
 }
-
