@@ -11,9 +11,12 @@ breadth = 400;
 innerLength = length / 10 + 5;
 innerBreadth = breadth / 10 + 5;
 
-
-number = 15;
-
+/**
+ *
+ *  Max number of phones
+ *
+ */
+number = 150;
 
 function preload() {
     img = loadImage('img/mobile.svg');
