@@ -8,8 +8,9 @@ var imgRouter;
 length = 600;
 breadth = 400;
 
-// innerLength = length / 10 + 5;
-// innerBreadth = breadth / 10 + 5;
+innerLength = length / 10 + 5;
+innerBreadth = breadth / 10 + 5;
+
 
 number = 15;
 
@@ -32,7 +33,10 @@ function setup() {
     }
 }
 
+
 function askJSON() {
+
+
     loadJSON("https://lukenelson.co.uk/wifi-tracking/track.php?callback=eggs", getData, 'jsonp');
 }
 
@@ -43,7 +47,9 @@ function askJSON() {
 function getData(data) {
     console.log(data);
     dataFeed = data;
-    console.log("Phones Connected:", data[0].probe_requests[0].count);
+    console.log("Connection Count:", data[0].probe_requests[0].count);
+
+    number = data[0].probe_requests[0].count;
 
     var displayMin = document.getElementById('displayMin');
     displayMin.innerHTML = data[0].probe_requests[0].min_signal;
@@ -61,68 +67,46 @@ var dataFeed;
 function phones() {
 
     this.display = function () {
-        if (dataFeed) {
-            randomSeed(1);
-            for (var i = 0; i < dataFeed[0].probe_requests[0].count; i++) {
-                /** if Variable i equals 0 and is less than the first dataFeed & probe request count array then increment i by 1  */
-                // fill('#ffffff');
-                // stroke('#ffffff');
-                imageMode(CENTER);
-                image(img, random(width), random(height), 18, 32);
-                /** Draw an ellispe with random x & y coordinates */
-            }
+        image(img, this.x, this.y, 18, 32);
+        imageMode(CENTER);
+    }
+
+    this.x = random(65, length - 60 - 5);
+    this.y = random(45, breadth - 40 - 5);
+
+
+    var set2 = [-0.2, 0.2];
+
+    this.randomX = random(-0.8, 0.8);
+    this.randomY = random(-0.8, 0.8);
+    this.randMove = function () {
+
+        this.x += this.randomX;
+        this.y += this.randomY;
+
+        if (this.x >= length - innerLength || this.y >= breadth - innerBreadth || this.x <= innerLength || this.y <= innerBreadth) {
+            this.randomX *= -1;
+            this.randomY *= -1
         }
-
     };
-
-    // this.x = random(65, length - 60 - 5);
-    // this.y = random(45, breadth - 40 - 5);
-    //
-    //
-    // var set2 = [-0.2, 0.2];
-    //
-    // this.randomX = random(-0.8, 0.8);
-    // this.randomY = random(-0.8, 0.8);
-    // this.randMove = function () {
-    //
-    //     this.x += this.randomX;
-    //     this.y += this.randomY;
-    //
-    //     if (this.x >= length - innerLength || this.y >= breadth - innerBreadth || this.x <= innerLength || this.y <= innerBreadth) {
-    //         this.randomX *= -1;
-    //         this.randomY *= -1
-    //     }
-    // };
 
 
 }
 
-
 function draw() {
-    background('#272c32');
 
-    // if (dataFeed) {
-    //     randomSeed(1);
-    //     for (var i = 0; i < number; i++) {
-    //         /** if Variable i equals 0 and is less than the first dataFeed & probe request count array then increment i by 1  */
-    //         fill('#ffffff');
-    //         stroke('#ffffff');
-    //         imageMode(CENTER);
-    //         image(img, random(width), random(height), 18, 32);
-    //         /** Draw an ellispe with random x & y coordinates */
-    //     }
-    // }
-        if (dataFeed) {
-            // randomSeed(1);
-            for (i = 0; i < dataFeed[0].probe_requests[0].count; i++) {
-                for (j = 0; j < dataFeed[0].probe_requests[0].count + 1; j++) {
-                    stroke('#CC123B');
-                    line(300, 225, phone[i].x, phone[i].y);
-                }
-                phone[i].display();
-                // phone[i].randMove();
-                image(imgRouter, 300, 200, 75, 78);
-            }
+    background('#21262d');
 
+    for (i = 0; i < number; i++) {
+        for (j = 0; j < i + 1; j++) {
+            stroke('#CC123B');
+            line(300, 225, phone[i].x, phone[i].y);
         }
+        phone[i].display();
+        phone[i].randMove();
+        image(imgRouter, 300, 200, 75, 78);
     }
+
+
+}
+
